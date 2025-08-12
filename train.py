@@ -334,3 +334,7 @@ if __name__ == '__main__':
     f1_macro = metrics.f1_score(y_true, y_pred, average='macro')
     print("Convergence Loss:", convergence_loss)
     print("Ac:", acc, "NMI:", nmi, "F1:", f1_macro)
+    # Force save boosted and cluster models at the end
+    torch.save(gracemodel.state_dict(), f"Saved_Models/{args.dataset}/gracemodel_boosted")
+    torch.save(clustermodel.state_dict(), f"Saved_Models/{args.dataset}/clustermodel")
+    print("Forced save of final checkpoints.")
